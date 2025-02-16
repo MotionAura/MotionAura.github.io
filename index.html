@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotionAura</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans:400,700|Castoro" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css" />
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Google Sans', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .intro-video {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    .title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #202124;
+    }
+    .authors {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .author-name {
+      color: #4285f4;
+      text-decoration: none;
+      margin: 0 0.2rem;
+    }
+    .affiliations {
+      margin-bottom: 2rem;
+      color: #5f6368;
+      font-size: 1rem;
+    }
+    .links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: #202124;
+      color: white;
+      text-decoration: none;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #4285f4;
+    }
+    .button i {
+      margin-right: 0.5rem;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      margin: 3rem 0 1.5rem;
+      color: #202124;
+    }
+    /* Add extra space after abstract */
+    .abstract {
+      margin-bottom: 30px;
+    }
+
+    /* Slider Styles for Text+Video Slides */
+    .slider-container {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px;
+    }
+    .slide {
+      min-width: 300px;
+      height: 400px;
+      margin: 10px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .slide video {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+    .slide p {
+      font-size: 14px;
+      margin-top: 10px;
+      color: #333;
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 5px;
+      margin-bottom: 0;
+    }
+
+    /* New Separate Slider for 10‑Second Videos (No Text) */
+    .ten-slider-container {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    .ten-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px;
+    }
+    .ten-slide {
+      min-width: 300px;
+      margin: 10px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .ten-slide video {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">MotionAura: Generating High-Quality and Motion Consistent Videos using Discrete Diffusion</h1>
+    
+    <div class="authors">
+      <a href="#" class="author-name">Onkar Susladkar<sup>1</sup></a>,
+      <a href="#" class="author-name">Jishu Sen Gupta<sup>2</sup></a>,
+      <a href="#" class="author-name">Chirag Sehgal<sup>3</sup></a>,
+      <a href="#" class="author-name">Sparsh Mittal<sup>4</sup></a>,
+      <a href="#" class="author-name">Rekha Singhal<sup>5</sup></a>
+    </div>
+
+    <div class="affiliations">
+      <sup>1</sup>Northwestern University,
+      <sup>2</sup>IIT BHU,
+      <sup>3</sup>Delhi Technological University,
+      <sup>4</sup>IIT Roorkee,
+      <sup>5</sup>TCS Research, India
+    </div>
+
+    <div class="links">
+      <a href="https://arxiv.org/pdf/2410.07659" class="button">
+        <i class="fas fa-file-pdf"></i>
+        Paper
+      </a>
+      <a href="https://arxiv.org/abs/2410.07659" class="button">
+        <i class="ai ai-arxiv"></i>
+        arXiv
+      </a>
+      <a href="https://github.com/CandleLabAI/MotionAura-ICLR-2025" class="button">
+        <i class="fab fa-github"></i>
+        Code
+      </a>
+    </div>
+
+    <video class="intro-video" controls>
+      <source src="static/videos/AbstractDiagram.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="abstract">
+      <h2 class="section-title">Abstract</h2>
+      <p>
+        The spatio-temporal complexity of video data presents significant challenges in tasks such as compression, generation, and inpainting. We present four key contributions to address the challenges of spatiotemporal video processing. First, we introduce the <strong>3D Mobile Inverted Vector-Quantization Variational Autoencoder (3D-MBQ-VAE)</strong>, which combines Variational Autoencoders (VAEs) with masked token modeling to enhance spatiotemporal video compression. The model achieves superior temporal consistency and state-of-the-art (SOTA) reconstruction quality by employing a novel training strategy with full frame masking. Second, we present <strong>MotionAura</strong>, a text-to-video generation framework that utilizes vector-quantized diffusion models to discretize the latent space and capture complex motion dynamics, producing temporally coherent videos aligned with text prompts. Third, we propose a <strong>spectral transformer-based denoising network</strong> that processes video data in the frequency domain using the Fourier Transform. This method effectively captures global context and long-range dependencies for high-quality video generation and denoising. Lastly, we introduce a downstream task of <strong>Sketch Guided Video Inpainting</strong>. This task leverages Low-Rank Adaptation (LoRA) for parameter-efficient fine-tuning. Our models achieve SOTA performance on a range of benchmarks. Our work offers robust frameworks for spatiotemporal modeling and user-driven video content manipulation. We will release the code, datasets, and models in open-source.
+      </p>
+    </div>
+
+    <video class="intro-video" controls>
+      <source src="static/videos/collage-2.mp4" type="video/mp4">
+    </video>
+
+    <!-- Other video sliders with text + video -->
+    <div class="slider-container">
+      <h2>Abstract Structures</h2>
+      <div class="slider">
+        <div class="slide">
+          <video controls src="static/Results For Supp-20250209T065200Z-001/Results For Supp/Gen_AS_1.mp4"></video>
+          <p>Create an abstract video featuring fluid, metallic sculptures morphing and twisting in a serene, white space. The camera circles around the forms, capturing their smooth surfaces as they shift between shapes. Reflections play across their surfaces, creating a mesmerizing, almost hypnotic effect.</p>
+        </div>
+        <div class="slide">
+          <video controls src="static/Results For Supp-20250209T065200Z-001/Results For Supp/Gen_AS_2.mp4"></video>
+          <p>Render is a video showcasing abstract sculptures made of geometric shapes fused with organic elements. The camera moves through a gallery-like space, focusing on each sculpture’s intricate details. The forms appear to grow and change, as if they are alive, with soft lighting emphasizing their textures.</p>
+        </div>
+        <div class="slide">
+          <video controls src="static/Results For Supp-20250209T065200Z-001/Results For Supp/Gen_AS_3.mp4"></video>
+          <p>Generate a video featuring abstract sculptures that resemble intricate crystal formations. The camera pans slowly, revealing the sharp angles and translucent surfaces of the sculptures. The light refracts through the crystals, creating a dazzling display of colors and reflections against a dark background.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Additional sliders (Cinematic, Graphic Novel, Low Poly, Sci-Fi, etc.) would be inserted here following the same pattern -->
+    
+    <div class="slider-container">
+      <h2>Cinematic Videos</h2>
+      <div class="slider">
+        <div class="slide">
+          <video controls src="static/Results For Supp-20250209T065200Z-001/Results For Supp/Gen_cenamatic_1.mp4"></video>
+          <p>Create a cinematic video featuring a sprawling, futuristic city at dusk. Skyscrapers tower above, casting long shadows. The camera slowly zooms out, revealing the bustling city streets below, filled with neon lights and fast-moving traffic. A heavy atmosphere of anticipation fills the air as dark clouds gather on the horizon.</p>
+        </div>
+        <div class="slide">
+          <video controls src="static/Results For Supp-20250209T065200Z-001/Results For Supp/Gen_cenamatic_2.mp4"></video>
+          <p>Render is a cinematic video of an epic battle in a medieval fantasy world. Armored knights clash with mythical creatures on a foggy battlefield. The camera captures intense close-ups of swords clashing and panoramic views of the chaotic scene. The sky is overcast, with the sound of thunder rumbling in the distance.</p>
+        </div>
+        <div class="slide">
+          <video controls src="static/Results For Supp-20250209T065200Z-001/Results For Supp/Gen_cenamatic_3.mp4"></video>
+          <p>Create a cinematic video of a couple reuniting at a train station in the pouring rain. The camera focuses on their expressions as they embrace, with raindrops glistening on their faces. Soft, warm lighting from the station’s lamps contrasts with the cold, wet environment, highlighting the emotion of the moment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- 10s Video Showcase (Textless) using separate slider classes -->
+    <div class="ten-slider-container">
+      <h2>10s Video Showcase</h2>
+      <div class="ten-slider">
+        <div class="ten-slide">
+          <video controls src="static/videos/10s_1.mp4"></video>
+        </div>
+        <div class="ten-slide">
+          <video controls src="static/videos/10s_2.mp4"></video>
+        </div>
+        <div class="ten-slide">
+          <video controls src="static/videos/10s_3.mp4"></video>
+        </div>
+        <div class="ten-slide">
+          <video controls src="static/videos/10s_4.mp4"></video>
+        </div>
+        <div class="ten-slide">
+          <video controls src="static/videos/10s_5.mp4"></video>
+        </div>
+        <div class="ten-slide">
+          <video controls src="static/videos/10s_6.mp4"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
