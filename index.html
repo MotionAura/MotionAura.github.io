@@ -16,48 +16,50 @@
       padding: 20px;
       text-align: center;
     }
-    h1 {
-      margin-bottom: 20px;
-    }
-    .intro-video {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      margin: 0 auto 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
       text-align: center;
     }
+
     .title {
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
       color: #202124;
     }
+
+    /* Authors & Affiliations Styles */
     .authors {
       margin-bottom: 1rem;
       font-size: 1.2rem;
     }
+    
     .author-name {
       color: #4285f4;
       text-decoration: none;
       margin: 0 0.2rem;
     }
+    
     .affiliations {
       margin-bottom: 2rem;
       color: #5f6368;
       font-size: 1rem;
     }
+    .note {
+      margin-bottom: 2rem;
+      color: #5f6368;
+      font-size: 1rem;
+    }
+    /* Button Styles */
     .links {
       display: flex;
       gap: 1rem;
       justify-content: center;
       margin-bottom: 3rem;
     }
+    
     .button {
       display: inline-flex;
       align-items: center;
@@ -69,42 +71,126 @@
       font-size: 0.9rem;
       transition: background-color 0.2s;
     }
+    
     .button:hover {
       background-color: #4285f4;
     }
+    
     .button i {
       margin-right: 0.5rem;
     }
-    .section-title {
-      font-size: 1.8rem;
-      margin: 3rem 0 1.5rem;
-      color: #202124;
-    }
-    /* Add extra space after abstract */
-    .abstract {
-      margin-bottom: 30px;
+
+    /* Video Section Styles */
+    .intro-video {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Slider Styles for Text+Video Slides */
+    .comparison-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.comparison-container {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .comparison-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.main-video {
+  flex: 1.5;
+  min-width: 50%;
+}
+
+.main-video video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.comparison-column {
+  flex: 1;
+  min-width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comparison-item {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-item video,
+.comparison-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.caption {
+  text-align: justify;
+  padding: 1rem;
+  background: #f8f9fa;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .main-video,
+  .comparison-column {
+    width: 100%;
+  }
+  
+  .main-video video {
+    aspect-ratio: 16/9;
+  }
+  
+  .comparison-item video,
+  .comparison-item img {
+    aspect-ratio: 1/1;
+  }
+}
+
+    /* Slider Styles */
     .slider-container {
       width: 90%;
       margin: auto;
-      overflow: hidden;
       background: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 30px;
     }
+
     .slider {
       display: flex;
       overflow-x: auto;
       scroll-behavior: smooth;
       padding: 10px;
     }
+
     .slide {
       min-width: 300px;
-      height: 400px;
       margin: 10px;
       background: #fff;
       padding: 10px;
@@ -113,23 +199,27 @@
       display: flex;
       flex-direction: column;
     }
+
     .slide video {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 5px;
-      flex-shrink: 0;
     }
+
     .slide p {
       font-size: 14px;
       margin-top: 10px;
       color: #333;
-      flex-grow: 1;
-      overflow-y: auto;
       padding: 5px;
-      margin-bottom: 0;
     }
 
+    /* BibTeX Styles */
+    .section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
     /* New Separate Slider for 10‑Second Videos (No Text) */
     .ten-slider-container {
       width: 90%;
@@ -160,6 +250,60 @@
       display: block;
       border-radius: 5px;
     }
+
+    .model-architecture {
+  max-width: 1100px;
+  margin: 3rem auto;
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.model-architecture img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.architecture-caption {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555;
+  text-align: justify;
+  line-height: 1.5;
+  padding: 0 15px;
+}
+
+.model-architecture-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 3rem auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.model-architecture-side img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.architecture-caption-side {
+  width: 50%;
+  font-size: 1rem;
+  color: #555;
+  text-align: justify;
+  line-height: 1.5;
+}
   </style>
 </head>
 <body>
@@ -168,8 +312,8 @@
     
     <div class="authors">
       <a href="#" class="author-name">Onkar Susladkar<sup>1</sup></a>,
-      <a href="#" class="author-name">Jishu Sen Gupta<sup>2</sup></a>,
-      <a href="#" class="author-name">Chirag Sehgal<sup>3</sup></a>,
+      <a href="#" class="author-name">Jishu Sen Gupta<sup>2*</sup></a>,
+      <a href="#" class="author-name">Chirag Sehgal<sup>3*</sup></a>,
       <a href="#" class="author-name">Sparsh Mittal<sup>4</sup></a>,
       <a href="#" class="author-name">Rekha Singhal<sup>5</sup></a>
     </div>
@@ -180,6 +324,9 @@
       <sup>3</sup>Delhi Technological University,
       <sup>4</sup>IIT Roorkee,
       <sup>5</sup>TCS Research, India
+    </div>
+    <div class="note">
+      *Work done during internship at IIT Roorkee, Support for this work was provided by Science and Engineering Research Board (SERB) of India, under the project CRG/2022/003821
     </div>
 
     <div class="links">
@@ -209,10 +356,66 @@
       </p>
     </div>
 
-    <video class="intro-video" controls>
+    <!-- <video class="intro-video" controls>
       <source src="static/videos/collage-2.mp4" type="video/mp4">
-    </video>
+    </video> -->
+    <div class="comparison-section">
+      <h2 class="section-title">Video Reconstruction, Generation and Sketch based Video Inpainting</h2>
+      <div class="comparison-container">
+        <!-- Left Column (Main Video) -->
+        <div class="main-video">
+          <video controls>
+            <source src="static/videos/collage-2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="caption">Generated videos of varied aspect ratios and styles</p>
+        </div>
+    
+        <!-- Right Column (Comparison) -->
+        <div class="comparison-column">
+          
+          
+          <div class="comparison-item">
+            <img src="static/images/VAE-diagram.jpg" alt="Architecture Diagram">
+            <p class="caption">Qualitative analysis of image reconstruction using different Video VAEs</p>
+          </div>
 
+          <div class="comparison-item">
+            <img src="static/images/Sketch-based-inpainting.png" alt="Architecture Diagram">
+            <p class="caption">Qualitative analysis of sketch-based image inpainting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="model-architecture">
+      <img src="static/images/FlowDiagramMotionAura-crop-1.png" alt="Model Architecture">
+      <p class="architecture-caption">
+        Discrete diffusion pretraining of the spectral transformer involves processing tokenized
+video frame representations from the 3D-MBQ-VAE encoder. These representations are subjected
+to random masking based on a predefined probability distribution. The resulting corrupted tokens
+are then denoised through a series of N Spectral Transformers. Contextual information from text
+representations generated by the T5-XXL-Encoder aids in this process. The denoised tokens are
+reconstructed using the 3D decoder
+      </p>
+    </div>
+
+    <div class="model-architecture-side">
+      <img src="static/images/SketchGuidedInpainting-crop-1.png" alt="Model Architecture">
+      <p class="architecture-caption-side">
+        Sketch-guided video inpainting process. The network inputs
+masked video latents, fully diffused unmasked latent, sketch condi-
+tioning, and text conditioning. It predicts the denoised latents using
+LoRA infused in our pre-trained denoiser ϵθ 
+      </p>
+    </div>
+
+    <div class="model-architecture-side">
+      <img src="static/images/VQVAE-Final-1.png" alt="Model Architecture">
+      <p class="architecture-caption-side">
+        Our proposed <strong>MotionAura</strong> architecture consists of a 3D Mobile Inverted Vector-Quantization VAE (3D-MBQ-VAE) for efficient video tokenization and a discrete diffusion model to generate high-quality, motion-consistent videos. By leveraging auxilary discriminative loss for predicting masked frames and enforcing random fram masking, the method enforces both learning efficient spatio-temporal features.
+      </p>
+    </div>
     <!-- Other video sliders with text + video -->
     <div class="slider-container">
       <h2>Abstract Structures</h2>
@@ -279,6 +482,22 @@
       </div>
     </div>
   </div>
+
+  <section class="section" id="BibTeX">
+    <div class="container">
+      <h2 class="title">BibTeX</h2>
+      <pre style="text-align: left; font-size: 1.1rem; line-height: 1.2;">
+          <code class="language-bibtex">
+@inproceedings{ref217,
+title     = "MotionAura: Generating High-Quality and Motion Consistent Videos using Discrete Diffusion",
+year      = "2025",
+author    = "Onkar Susladkar and Jishu Sen Gupta and Chirag Sehgal and Sparsh Mittal and Rekha Singhal",
+booktitle = "International Conference on Learning Representations (ICLR)"
+}
+          </code>
+      </pre>
+    </div>
+  </section>
 </body>
 </html>
 
